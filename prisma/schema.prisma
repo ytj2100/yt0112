@@ -1,0 +1,25 @@
+// prisma/schema.prisma
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite" // 또는 postgresql, mysql
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String?
+  avatarUrl String?
+  createdAt DateTime @default(now())
+}
+
+// 메뉴 구성을 DB에서 가져온다면 사용
+model Menu {
+  id        String   @id @default(cuid())
+  label     String
+  key       String   @unique // 탭 식별자 (예: 'user-management')
+  group     String?  // 메뉴 그룹
+}
