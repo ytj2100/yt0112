@@ -3,7 +3,8 @@
 
 import { prisma } from "@/lib/prisma";
 
-export async function getUsers() {
+//export async function getUsers() {
+export const getUsers = async () => {
   try {
     // 실제 DB에서 사용자 목록 조회
     const users = await prisma.user.findMany({

@@ -2,7 +2,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { getUsers } from "@/app/actions/userActions"; // Server Action 임포트
+import { getUsers } from "@/actions/userActions"; // Server Action 임포트
 import {
   Table, TableBody, TableCell, TableHead, TableHeader, TableRow
 } from "@/components/ui/table";

@@ -1,19 +1,22 @@
 // prisma/schema.prisma
 
-generator client {
-  provider = "prisma-client-js"
-}
-
 datasource db {
   provider = "sqlite" // 또는 postgresql, mysql
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+  engineType = "library"
 }
 
 model User {
   id        String   @id @default(cuid())
   email     String   @unique
+  password  String   // 암호화된 비밀번호 저장
   name      String?
-  avatarUrl String?
   createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
 // 메뉴 구성을 DB에서 가져온다면 사용
