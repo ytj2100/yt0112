@@ -5,7 +5,7 @@ import { PrismaClient } from "@prisma/client";
 import bcrypt from "bcryptjs";
 /* ccc */
 const prisma = new PrismaClient();
-/* BBB */
+/* AAA */
 const handler = NextAuth({
   providers: [
     CredentialsProvider({
